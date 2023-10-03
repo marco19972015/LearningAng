@@ -5,7 +5,7 @@ import { ProductsModule } from '../products/products.module';
 
 
 @NgModule({
-  declarations: [ProductsModule],
+  declarations: [],
   imports: [
     CommonModule,
     ProductsModule
