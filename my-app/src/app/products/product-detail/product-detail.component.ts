@@ -10,6 +10,4 @@ export class ProductDetailComponent {
   // We use Input decorator to initialize an empty string
   @Input() name = '';
 
-  selectedProduct = '';
-
 }
