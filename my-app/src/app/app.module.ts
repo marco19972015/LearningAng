@@ -7,15 +7,16 @@ import { ProductsModule } from './products/products.module';
 
 
 
-@NgModule({
-  declarations: [
+@NgModule({  // This is used to configure an Angular module
+  declarations: [  // Contains angular artifacts that shre a common functionality bound to specfic app features
     AppComponent,
   ],
-  imports: [
-    BrowserModule,
-    ProductsModule
+  imports: [  // Allows us to use features from another module
+    BrowserModule,  // Configures our application to run in the browser
+    ProductsModule  
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [],  // Contains special-purpose Angular artifacts called -services- such as HTTP endpoint ect...
+  bootstrap:  // Defines the component that will be loaded at application startup
+   [AppComponent]  // The main component of our Angular application
 })
 export class AppModule {}

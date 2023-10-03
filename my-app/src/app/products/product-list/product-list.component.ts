@@ -7,6 +7,12 @@ import { Component } from '@angular/core';
 })
 export class ProductListComponent {
 
+  // Empty variable to store selected item
   selectedProduct = '';
-  
+
+
+  // Binding so we can communicate between our two components
+  onBuy(name: string) {
+    window.alert(`You just bought ${this.selectedProduct}`);
+  }
 }
