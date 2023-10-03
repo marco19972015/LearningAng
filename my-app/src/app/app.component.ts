@@ -9,12 +9,6 @@ export class AppComponent{
   title = 'Learning Angular';
   description = 'Hello World';
 
-
-  
-
-  
-
-
   practiceButton() {
     
     function getSomething(): string {
