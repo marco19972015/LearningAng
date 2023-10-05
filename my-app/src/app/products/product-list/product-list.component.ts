@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class ProductListComponent {
 
   // Empty variable to store selected item
-  selectedProduct = '';
+  selectedProduct = 'Microphone';
 
 
   // Binding so we can communicate between our two components
