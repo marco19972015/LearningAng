@@ -2,8 +2,21 @@
 <!-- The *ngIf directive adds or rmeoves elements in the DOM tree -->
 <!-- The * indicates a structural directive -->
 <div *ngIf="name">
-    <p>Product detail works</p>
-    <h2> {{ name }}</h2>
+    <h2>Product Details</h2>
+    <h3> {{ name }} </h3>
+    <!-- ngSwitch defines the property that we want to check when applying the directive -->
+    <div [ngSwitch]="name">
+        <!-- ngSwitchCase adds or removes a remplate from the DOM tree depending on the valye of the property defined in the ngSwitch -->
+        <p *ngSwitchCase="'Webcam'">
+            Product is used for video
+        </p>
+        <p *ngSwitchCase="'Microphone'">
+            Product is used for audio
+        </p>
+        <!-- ngSwitchDefault adds a template to the DOM tree if the value of the property defined 
+            in the ngSwitch directives does not meet any ngSwitchCase statement -->
+        <p *ngSwitchDefault>Product is for general use</p>
+    </div>
     <button (click)="buy()">Buy Now</button>
 </div>
 
