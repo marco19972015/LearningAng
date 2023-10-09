@@ -15,7 +15,7 @@ export class ProductListComponent implements AfterViewInit {
   }
 
   // Empty variable to store selected item
-  selectedProduct = 'Microphone';
+  selectedProduct = '';
 
 
   // Binding so we can communicate between our two components

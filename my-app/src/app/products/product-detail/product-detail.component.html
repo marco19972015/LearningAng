@@ -1,3 +1,9 @@
-<p>Product detail works</p>
-<h2> {{ name }}</h2>
-<button (click)="buy()">Buy Now</button>
+<!-- Our view is only rendered when the name property has a value  -->
+<!-- The *ngIf directive adds or rmeoves elements in the DOM tree -->
+<!-- The * indicates a structural directive -->
+<div *ngIf="name">
+    <p>Product detail works</p>
+    <h2> {{ name }}</h2>
+    <button (click)="buy()">Buy Now</button>
+</div>
+

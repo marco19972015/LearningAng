@@ -5,10 +5,14 @@
   <li (click)="selectedProduct = 'Wireless Keyboard'">Wireless Keyboard</li>
 </ul>
 
+<!-- We give an else statement to the *ngIf and use the template reference variable to interact with it -->
 <app-product-detail
-#product
+*ngIf="selectedProduct; else noProduct"
 [name]="selectedProduct"
 (bought)="onBuy($event)"
 ></app-product-detail>
-
+<!-- We assign a template reference variable -->
+<ng-template #noProduct>
+  <p>No product selected</p>
+</ng-template>
 
