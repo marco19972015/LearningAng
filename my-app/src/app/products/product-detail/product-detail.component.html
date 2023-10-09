@@ -21,6 +21,8 @@
             in the ngSwitch directives does not meet any ngSwitchCase statement -->
         <p *ngSwitchDefault>Product is for general use</p>
     </div>
+    
+    <p>{{product | json}}</p>
     <button (click)="buy()">Buy Now</button>
 </div>
 

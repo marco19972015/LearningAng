@@ -8,6 +8,8 @@ import { Product } from '../product';
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent implements AfterViewInit {
+  // I can use this later on in personal project
+  today = new Date();
 
   // Create a array so we can use the ngFor directive to display the product list in a more scalable way
   // products = ['Webcam', 'Microphone', 'Wireless keyboard']
@@ -18,6 +20,7 @@ export class ProductListComponent implements AfterViewInit {
       console.log(this.productDetail.product);  //  We can then access any member of its public API such as the name property
     }
   }
+  
 
   // We now need to accommodate our interface
   selectedProduct: Product | undefined;  // Selected product will return a product or undefined

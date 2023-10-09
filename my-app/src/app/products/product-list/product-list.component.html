@@ -4,9 +4,11 @@
        The opposite is using ng's object identity to keep track of every item in a collection
        trackBy allows us to target the nodes we need to change, therefore saving on performance -->
   <li *ngFor="let product of products" (click)="selectedProduct = product">
-   {{ product.name | lowercase }}
+   {{ product.name }}
   </li>
 </ul>
+
+<p>{{today | date:'fullDate'}}</p>
 
 <!-- We give an else statement to the *ngIf and use the template reference variable to interact with it -->
 <app-product-detail
