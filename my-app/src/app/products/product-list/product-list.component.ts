@@ -1,5 +1,6 @@
 import {  AfterViewInit, Component, ViewChild} from '@angular/core';
 import { ProductDetailComponent } from '../product-detail/product-detail.component';
+import { Product } from '../product';
 
 @Component({
   selector: 'app-product-list',
@@ -9,23 +10,41 @@ import { ProductDetailComponent } from '../product-detail/product-detail.compone
 export class ProductListComponent implements AfterViewInit {
 
   // Create a array so we can use the ngFor directive to display the product list in a more scalable way
-  products = ['Webcam', 'Microphone', 'Wireless keyboard']
+  // products = ['Webcam', 'Microphone', 'Wireless keyboard']
 
   // Check if the productDetail property has been set
   ngAfterViewInit(): void {
     if (this.productDetail) {  // When we query the productDetail property, we get an instance of a ProductDetailComponent class
-      console.log(this.productDetail.name);  //  We can then access any member of its public API such as the name property
+      console.log(this.productDetail.product);  //  We can then access any member of its public API such as the name property
     }
   }
 
-  // Empty variable to store selected item
-  // Investigate the reassining the variable property 
-  selectedProduct = '';
+  // We now need to accommodate our interface
+  selectedProduct: Product | undefined;  // Selected product will return a product or undefined
+  // Create an array with objects that meet our Product interface
+  products: Product[] = [
+    {
+      name: 'Webcam',
+      price: 100
+    },
+    {
+      name: 'Microphone',
+      price: 200
+    },
+    {
+      name: 'Wireless keyboard',
+      price: 85
+    }
+  ];
+
 
 
   // Binding so we can communicate between our two components
   onBuy(name: string) {
-    window.alert(`You just bought ${this.selectedProduct}`);
+    // The ? is used because we are accessing the selectedProduct property of the name object
+    // If the name is null or undefined, instaed of throwing an error, it will return undefined
+    // This is useful to prevent a TypeError from being thrown if name is not defined or null
+    window.alert(`You just bought ${this.selectedProduct?.name}!`);  
   }
 
   // We query a child componenent from the parent component class

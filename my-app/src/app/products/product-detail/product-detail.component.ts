@@ -1,4 +1,5 @@
 import { Component, Input, Output, EventEmitter, OnChanges, SimpleChange ,ViewEncapsulation, ChangeDetectionStrategy, SimpleChanges } from '@angular/core';
+import { Product } from '../product';
 
 @Component({
   selector: 'app-product-detail',
@@ -9,24 +10,24 @@ import { Component, Input, Output, EventEmitter, OnChanges, SimpleChange ,ViewEn
 })
 export class ProductDetailComponent implements OnChanges{
 
+  // We use Input decorator to initialize an empty string initially set to variable name
+  // Now that we use the service we set the product and assigned the interface Product 
+  @Input() product: Product | undefined;
+
   ngOnChanges(changes: SimpleChanges): void {
-    const product = changes['name'];
+    const product = changes['product'];  // We change the array from name to product to match our new type
     if (!product.isFirstChange()){  // if we selected a product then log out the old and new value
-      const oldValue = product.previousValue;  // old value currently contains the Microphone
-      const newValue = product.currentValue;  // new value becomes what we click on
+      const oldValue = product.previousValue.name;  // old value currently contains the Microphone (added the name variable)
+      const newValue = product.currentValue.name;  // new value becomes what we click on
       console.log(`Product change from ${oldValue} to ${newValue}`);
     }
   }
-
-  // We use Input decorator to initialize an empty string
-  @Input() name = '';
-  
 
   // We use Output decorator and it is initialized to a new EventEmitter 
   @Output() bought = new EventEmitter<string>();
 
   // Method to show what was bought
   buy() {
-    this.bought.emit(this.name);
+    this.bought.emit(this.product?.name);
   }
 }
