@@ -1,8 +1,11 @@
 <h2>Product List</h2>
 <ul>
-  <li (click)="selectedProduct = 'Webcam'">Webcam</li>
-  <li (click)="selectedProduct = 'Microphone'">Microphone</li>
-  <li (click)="selectedProduct = 'Wireless Keyboard'">Wireless Keyboard</li>
+  <!-- Using trackBy to keep track of the items that are being iterated through
+       The opposite is using ng's object identity to keep track of every item in a collection
+       trackBy allows us to target the nodes we need to change, therefore saving on performance -->
+  <li *ngFor="let product of products; trackBy: trackByProducts " (click)="selectedProduct = product">
+   {{ product }}
+  </li>
 </ul>
 
 <!-- We give an else statement to the *ngIf and use the template reference variable to interact with it -->
